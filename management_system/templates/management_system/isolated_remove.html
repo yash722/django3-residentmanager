@@ -1,0 +1,29 @@
+{% extends 'management_system/base.html' %}
+
+{% block content %}
+<div class="container">
+  <br />
+  <form method="POST">
+    {% csrf_token %}
+    <h2> Remove <b style="color: crimson;">{{ person.name }}</b> from isolation ?? </h2><br />
+    <style>
+    .blockbutton {
+      display: block;
+      width: 100%;
+      border: none;
+      background-color: #9800FF;
+      color: white;
+      padding: 14px 28px;
+      font-size: 25px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .blockbutton:hover {
+      background-color: #7800CA;
+    }
+  </style>
+    <button type="submit" class="blockbutton"><b>Yes, the resident is out of danger</b></button>
+  </form>
+</div>
+{% endblock %}

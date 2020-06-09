@@ -1,0 +1,11 @@
+{% extends 'management_system/base.html' %}
+
+{% block content %}
+<br />
+<h1 style="font-size:100px; font-family: 'Acme', sans-serif;"> Hello there!!</h1><br />
+  <p style="font-size:40px;">I, Yash Rao, First-Year at VIT University, have created a website where you can easily mantain a record of people coming in and going out.<br />
+  <b>Due the CoronaVirus outbreak, societies may have a very hard time keeping checks on the residents leaving for work, and people coming in for a casual visit.</b>
+  To make this process a little bit easier, I have made this easily accesible website. Add your society(Sign Up)</p>
+  <a href="{% url 'aboutme' %}" role="button" class=" btn btn-outline-dark btn-lg btn-block"> <b>About Me!</b> </a><br />
+
+{% endblock %}

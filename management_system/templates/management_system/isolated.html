@@ -1,0 +1,27 @@
+{% extends 'management_system/base.html' %}
+
+{% block content %}
+<br />
+<h1 style="color: #630000; font-size:45px;"><i>People in isolation(as of now): </i></h1>
+<br />
+<div class="row justify-content-center mt-5; text-center">
+    <div class="col-md-10">
+        <div class="list-group">
+            {% for person in people %}
+                <a class="list-group-ite;m list-group-item-action list-group-item-danger" href="{% url 'isolated_remove' person.id %}"><b>Name: {{ person.name }}<br />
+                Address: {{ person.flat }}<br />
+                Mobile No. : {{ person.mobile_no }}</b></a> <br />
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+      <div class="col-md-50">
+          {% if people.count %}
+               <h2 class="alert alert-warning" role="alert" >{{ people.count }} resident{{ people.count|pluralize }} </h2>
+          {% else %}
+                         <h1 class="alert alert-primary" role="alert" style="width:100%; font-size:60px;"><u>None of the residents are infected!!</u></h1>
+          {% endif %}
+      </div>
+  </div>
+{% endblock %}

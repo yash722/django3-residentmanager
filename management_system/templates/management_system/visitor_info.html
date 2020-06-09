@@ -1,0 +1,23 @@
+{% extends 'management_system/base.html' %}
+
+{% block content %}
+<p style="font-size:69px;font-family: 'Piedra', cursive;"> <i>Resident Info: </i></p>
+
+<form method="POST" action="{% url 'visitordepart' person.id %}">
+  {% csrf_token %}
+  <p style="font-size:28px">
+  <b>Name</b>: {{ person.name }}<br />
+  <b>Mobile</b> : {{ person.mobile_no }}<br />
+  <b>Flat(visiting)</b>: {{ person.flat_vis }}<br />
+  <b>Reason for coming in</b>: {{ person.reason }}<br />
+  {% if person.vehicle_no %}
+  <b>Vehicle No. </b>: {{ person.vehicle_no }}
+  {% endif %}
+  {% if person.family %}
+  <b> With family </b><br />
+  {% endif %}
+  <b>Time of arrival</b>: {{ person.vis_time }}<br />
+  </p><br />
+  <button type="submit" class="btn btn-outline-primary"> Departed </button>
+</form>
+{% endblock %}

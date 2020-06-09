@@ -1,0 +1,41 @@
+{% extends 'management_system/base.html' %}
+{% load static %}
+{% block content %}
+<div class='container-fluid'>
+  <div class="jumbotron" style="background-color: #C5FAFF;">
+    <h1 style="font-size: 50px;"><b>Hi!</b></h1>
+    <h2 style=""> For a more proper introduction:<br /> <i>My name is <b>Yash Rao</b> and I am currently studying at <u>VIT Uni, doing B.Tech in C.S.E</u>.</i>
+    </h2>
+  </div>
+  <div class='row' style="margin: 5px 5px;">
+    <div class="col-sm-12" style="background-color: #FFCBC5; margin: -30px 0px 0px 0px;"><img src="{% static 'management_system/pp.jpg' %}" class="img-responsive"></div>
+  </div>
+  <div class='row' style="background-color:#E8C9FF; margin: 5px 5px;">
+    <h1 style="font-size: 50px;background-color:#E8C9FF"> These are my beloved mom and dad!!</h1><br />
+    <ul>
+      <li><h3>My Dad's name is Anil Manik Rao. He is a salary-man, but also makes time for me and mom. He is my inspiration and the reason I got interested in WebDev.</h3></li>
+      <li><h3>My mom's name is Ashwarya Shri Jadhav.She is a proud House-Wife.She works very hard so that people can be comfortable in her care.</h3></li>
+    </ul><br />
+  </div>
+  <div class="row; margin: 5px 5px;"style="background-color:#DCDCDC">
+    <br />
+    <h2 > I really like Rap music; every type, from nerdcore to trap music to lyrical miracle style too. My current favorite artists include <i>Joyner Lucas, DaBaby, Tech-N9ne and VI Seconds</i>.</h2>
+    <br />
+  </div>
+  <div class="row;margin: 5px 5px;">
+    <h2 style="background-color:#000000; color: aquamarine;"> I also like animes and mangas. Some of my personal favorite anime include <u>Fairy Tail, Code Geass, Death Note, Konosuba</u> and
+      mangas include<u> VagaBond, Kingdom, Vinland Saga, Attack On Titan, One Peice</u>(These are all off the top of my head :p )</h2>
+  </div><br />
+  {% if user.is_authenticated %}
+    <h2> <b><i><u>This is one of my personal projects. This took a lot of time, effort and research to complete. <span style="color: #530093 ">Thank you for checking out my website!</span></u></i></b></h2><br />
+  {% else %}
+    <h2> <b><i><u>This is one of my personal projects. This took a lot of time, effort and research to complete. <span style="color: #530093 ">I hope you like this website!</span></u></i></b></h2><br />
+  {% endif %}
+  <div class="row">
+    <div class='col-md-5'><h1> Follow me on Instagram:- </h1></div>
+    <div class='col-md-7'><a href="https://www.instagram.com/its_waitforit_yash/" target="_blank"><img src="{% static 'management_system/instagram-sketched.png' %}"></a></div>
+  </div>
+  <hr>
+  Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+</div>
+{% endblock %}
