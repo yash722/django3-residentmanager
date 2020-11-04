@@ -1,15 +1,37 @@
 {% extends 'management_system/base.html' %}
 
 {% block content %}
-<h1>Visitors entered: </h1>
+<h1>Visitors out: </h1>
 <br />
 <div class="row justify-content-center mt-5; text-center">
     <div class="col-md-10">
-        <div class="list-group">
+        <table class="table table-dark">
+            <thead>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Flat(Visiting)</th>
+                <th>Reason</th>
+                <th>With Family?</th>
+                <th>Entry Details</th>
+                <th>Exit Details</th>
+            </thead>
             {% for person in people %}
-                <a href="{% url 'departed_info' person.id %}" class="list-group-item list-group-item-action list-group-item-warning"><b>{{ person.name }}</b></a> <br />
+                <tr>
+                    <th>{{ person.name }}</th>
+                    <th>{{ person.mobile_no }}</th>
+                    <th>{{ person.flat_vis }}</th>
+                    <th>{{ person.reason }}</th>
+                    {% if person.family %}
+                        <th>Yes</th>
+                    {% else %}
+                        <th>No</th>
+                    {% endif %}
+                    <th>{{ person.vis_time }}</th>
+                    <th>{{ person.vis_returned_time }}</th>
+                </tr>
+
             {% endfor %}
-        </div>
+        </table>
     </div>
 </div>
 {% endblock %}
