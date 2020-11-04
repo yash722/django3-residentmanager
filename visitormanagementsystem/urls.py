@@ -20,25 +20,29 @@ from management_system import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('aboutme/', views.aboutme, name='aboutme'),
-    #Residents going out
+    # Residents going out
     path('outgoingentry/', views.outgoing_entryform, name='outgoingentryform'),
     path('outgoingentrylist/', views.outgoing_list, name='outgoing_list'),
-    path('outgoingentrylist/<int:person_pk>', views.outgoing_info, name='outgoing_info'),
-    path('outgoingentrylist/<int:person_pk>/returned', views.visitorreturn, name='visitorreturn'),
+    path('outgoingentrylist/<int:person_pk>',
+         views.outgoing_info, name='outgoing_info'),
+    path('outgoingentrylist/<int:person_pk>/returned',
+         views.visitorreturn, name='visitorreturn'),
     path('returned/', views.returned, name='returned'),
-    path('returned/<int:person_pk>', views.returned_info, name='returned_info'),
-    path('outgoingentrylist/<int:person_pk>/positive', views.positive, name='positive'),
+    path('outgoingentrylist/<int:person_pk>/positive',
+         views.positive, name='positive'),
     path('isolated/', views.isolate, name="isolated"),
     path('isolateresident/', views.isolate_entryform, name='isolate_entryform'),
-    path('isolated/<int:person_pk>/remove', views.isolated_remove, name="isolated_remove"),
-    #Visitor coming in
+    path('isolated/<int:person_pk>/remove',
+         views.isolated_remove, name="isolated_remove"),
+    # Visitor coming in
     path('visitorentry/', views.visitor_entryform, name='visitorentryform'),
     path('visitorentrylist/', views.visitor_list, name='visitor_list'),
-    path('visitorentrylist/<int:person_pk>', views.visitor_info, name='visitor_info'),
-    path('visitorentrylist/<int:person_pk>/departed', views.visitordepart, name='visitordepart'),
+    path('visitorentrylist/<int:person_pk>',
+         views.visitor_info, name='visitor_info'),
+    path('visitorentrylist/<int:person_pk>/departed',
+         views.visitordepart, name='visitordepart'),
     path('departed/', views.departed, name='departed'),
-    path('departed/<int:person_pk>', views.departed_info, name='departed_info'),
-    #Authentication System
+
+    # Authentication System
     path('auth/', include('accounts.urls'))
 ]
