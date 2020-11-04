@@ -1,23 +1,38 @@
 {% extends 'management_system/base.html' %}
 
 {% block content %}
+<div class="container-fluid">
 <p style="font-size:69px;font-family: 'Piedra', cursive;"> <i>Resident Info: </i></p>
 
 <form method="POST" action="{% url 'visitordepart' person.id %}">
   {% csrf_token %}
-  <p style="font-size:28px">
-  <b>Name</b>: {{ person.name }}<br />
-  <b>Mobile</b> : {{ person.mobile_no }}<br />
-  <b>Flat(visiting)</b>: {{ person.flat_vis }}<br />
-  <b>Reason for coming in</b>: {{ person.reason }}<br />
-  {% if person.vehicle_no %}
-  <b>Vehicle No. </b>: {{ person.vehicle_no }}
-  {% endif %}
+  <div class="row">
+    <div class="col" style="font-size:23px"><b>Name</b>:</div>
+    <div class="col text-uppercase" style="font-size:28px">{{ person.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col" style="font-size:23px"><b>Mobile</b> : </div>
+    <div class="col" style="font-size:28px">{{ person.mobile_no }}</div>
+  </div>
+  <div class="row">
+    <div class="col" style="font-size:23px"><b>Flat</b>: </div>
+    <div class="col" style="font-size:28px">{{ person.flat_vis }}</div>
+  </div>
+  <div class="row">
+    <div class="col" style="font-size:23px"><b>Reason for coming</b>:</div>
+    <div class="col" style="font-size:28px">{{ person.reason }}</div>
+  </div>
   {% if person.family %}
-  <b> With family </b><br />
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>With Family </b>:</div> 
+      <div class="col" style="font-size:28px">Yes</div>
+    </div>
   {% endif %}
-  <b>Time of arrival</b>: {{ person.vis_time }}<br />
-  </p><br />
-  <button type="submit" class="btn btn-outline-primary"> Departed </button>
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>Time of entry</b>:</div>
+      <div class="col" style="font-size:28px">{{ person.vis_time }}</div>
+    </div>
+  <button type="submit" class="btn btn-outline-primary btn-lg btn-block"> Departed </button>
+  </div>
 </form>
 {% endblock %}
