@@ -1,11 +1,176 @@
 {% extends 'management_system/base.html' %}
-
 {% block content %}
-<br />
-<h1 style="font-size:100px; font-family: 'Acme', sans-serif;"> Hello there!!</h1><br />
-  <p style="font-size:40px;">I, Yash Rao, First-Year at VIT University, have created a website where you can easily mantain a record of people coming in and going out.<br />
-  <b>Due the CoronaVirus outbreak, societies may have a very hard time keeping checks on the residents leaving for work, and people coming in for a casual visit.</b>
-  To make this process a little bit easier, I have made this easily accesible website. Add your society(Sign Up)</p>
-  <a href="{% url 'aboutme' %}" role="button" class=" btn btn-outline-dark btn-lg btn-block"> <b>About Me!</b> </a><br />
-
+{% load static %}
+<body style="background-color: lightcyan;">
+<div class="container-fluid">
+  <div class="jumbotron text-center container" style="background-color: #FFBFBF;">
+    <div class="media justify-content-center mt-1">
+      <img
+        src="{% static 'management_system/welcome.gif' %}"
+        alt=""
+        height="128px"
+        width="128px"
+        class="align-self-center border rounded-circle"
+      />
+      <p class="display-2 ml-3">
+        Hello there!
+      </p>
+    </div>
+    <p>
+        I, <u>Yash Rao</u>, <i>student at VIT University</i> has created this website so that
+        societies can have a tab on who has left, people who have entered, and people who are in 
+        isolation.
+    </p>
+    {% if user.is_authenticated %}
+    {% else %}
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="h3 text-center">
+          <a href="{% url 'signupform' %}" class="btn btn-outline-dark btn-lg">
+            Enroll your society now!
+          </a>
+        </p>
+      </div>
+      <div class="col-sm-6">
+          <a href="{% url 'loginform' %}" class="btn btn-light btn-lg btn-block">
+            Already signed up! Log in!
+          </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="row p-3 align-items-center">
+    <div class="col-sm-6 bg-dark md-2" style="border: black;border-radius: 10px;">
+      <h3 class="text-white my-2">
+        <strong>Spread the message!</strong>
+      </h1>
+      <p style="font-size: 19px;color:paleturquoise"><i>
+        During these testing times, everyone should try keep it together and follow guidelines as given by
+        the government to help yourself, help the people around you and prevent the spread of virus....</i>
+      </p>
+    </div>
+    <div class="col-sm-6 m-auto" style="border:black; border-radius: 10px;">
+      <div class="carousel slide" data-ride="carousel" id="mentslide" data-interval="1700">
+        <ol class="carousel-indicators">
+          <li
+            class="active"
+            data-target="#mentslide"
+            data-slide-to="0"
+          ></li>
+          <li data-target="#mentslide" data-slide-to="1"></li>
+          <li data-target="#mentslide" data-slide-to="2"></li>
+          <li data-target="#mentslide" data-slide-to="3"></li>
+          <li data-target="#mentslide" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              style="border:black; border-radius: 10px;"
+              src="{% static 'management_system/cdc.jpg' %}"
+              alt=""
+              class="d-block img-fluid"
+            />
+            <div class="carousel-caption text-dark" style="border:black; border-radius: 10px;">
+              <h3 style="background-color: whitesmoke;border: black;border-radius: 10px;font-family: 'Merriweather Sans', sans-serif;font-size: 20px;">
+                <strong>Stay Safe!Stay Inside!</strong>
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              style="border:black; border-radius: 10px;"
+              src="{% static 'management_system/mask.jpg' %}"
+              alt=""
+              class="d-block img-fluid"
+            />
+            <div class="carousel-caption text-dark">
+              <h3 style="background-color: whitesmoke;border: black;border-radius: 10px;font-family: 'Merriweather Sans', sans-serif;font-size: 20px;">
+                <strong>Wear masks when in crowds!</strong>
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              style="border:black; border-radius: 10px;"
+              src="{% static 'management_system/hands.jpg' %}"
+              alt=""
+              class="d-block img-fluid"
+            />
+            <div class="carousel-caption text-dark" style="border:black; border-radius: 10px;">
+              <h3 style="background-color: whitesmoke;border: black;border-radius: 10px;font-family: 'Merriweather Sans', sans-serif;font-size: 20px;">
+                <strong>Wash hands frequently!</strong>
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              style="border:black; border-radius: 10px;"
+              src="{% static 'management_system/donate.jpg' %}"
+              alt=""
+              class="d-block img-fluid"
+            />
+            <div class="carousel-caption text-dark" style="border:black; border-radius: 10px;">
+              <h3 style="background-color: whitesmoke;border: black;border-radius: 10px;font-family: 'Merriweather Sans', sans-serif;font-size: 20px;">
+                <strong>Help those in need!</strong>
+              </h3>
+            </div>
+          </div>
+          <div class="carousel-item" style="border:black; border-radius: 10px;">
+            <img
+              style="border:black; border-radius: 10px;"
+              src="{% static 'management_system/hope.jpg' %}"
+              alt=""
+              class="d-block img-fluid"
+            />
+            <div class="carousel-caption text-dark" style="border:black; border-radius: 10px;">
+              <h3 style="background-color: whitesmoke;border: black;border-radius: 10px;font-family: 'Merriweather Sans', sans-serif;font-size: 20px;">
+                <strong>Spread positivity!Have hope!</strong>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <a
+          href="#mentslide"
+          class="carousel-control-prev"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a
+          href="#mentslide"
+          class="carousel-control-next"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:#C9FFBF;border: black;border-radius: 10px;">
+      <p class="h2 my-5"><strong><i>
+        Why is this needed? ----></i></strong>
+      </p>
+    </div>
+    <div class="col-sm-8 pt-3" style="background-color: #D8BFFF;border: black;border-radius: 10px;">
+      <p class="text-dark text-center"> 
+        Due to this pandemic, people are expected to be in their homes and prevent the spread of CoronaVirus.
+        But due to many factors such as
+        <ul class="list-unstyled">
+          <li><i>getting groceries and/or medicines</i></li>
+          <li><i>going out for charity work</i></li>
+          <li><i>visiting someone/somewhere due to work</i>, etc.</li>
+        </ul>
+        People may have to go out to visit someone or come to a place to visit someone.....<br />
+        <p class="bg-dark text-white p-2" style="font-size: 20px;border: black ; border-radius: 15px; font-family: 'Staatliches', cursive;">
+          To keep tabs on people leaving and entering and to make it all the more easier,
+          I have implemented a solution to this problem as a easily accessible website!
+        </p>
+      </p>
+  </div>
+</div>
+<hr>
+</div>
+<div style="margin-top: 50px;"></div>
+</body>
 {% endblock %}
