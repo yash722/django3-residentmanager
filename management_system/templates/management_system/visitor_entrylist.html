@@ -6,7 +6,7 @@
     <div class="col-md-10">
         <div class="list-group">
             {% for person in people %}
-                <a href="{% url 'visitor_info' person.id %}" class="list-group-item list-group-item-action list-group-item-info" style="font-family: 'Permanent Marker', cursive; font-size:30px;"><b>{{ person.name }}</b></a> <br />
+                <a href="{% url 'visitor_info' person.id %}" class="list-group-item list-group-item-action list-group-item-info" style="font-size:30px;"><b>{{ person.name }}</b></a> <br />
             {% endfor %}
         </div>
     </div>
@@ -16,7 +16,7 @@
           {% if people.count %}
                <h2 class="alert alert-danger" role="alert" >{{ people.count }} visitor{{ people.count|pluralize }} in</h2>
           {% else %}
-                         <h1 class="alert alert-success" role="alert" style="width:100%"><i>No visitors in!</i></h1>
+                <h1 class="alert alert-success" role="alert" style="font-family: 'Permanent Marker', cursive; width:100%"><i>No visitors in!</i></h1>
           {% endif %}
       </div>
   </div>
