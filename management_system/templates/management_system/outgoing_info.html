@@ -1,25 +1,44 @@
 {% extends 'management_system/base.html' %}
 
 {% block content %}
+<div class="container-fluid">
 <p style="font-size:69px;font-family: 'Piedra', cursive;"> <i>Resident Info: </i></p>
 
 <form method="POST" action="{% url 'visitorreturn' person.id %}">
   {% csrf_token %}
-  <p style="font-size:28px">
-  <b>Name</b>: {{ person.name }}<br />
-  <b>Mobile</b> : {{ person.mobile_no }}<br />
-  <b>Flat</b>: {{ person.flat }}<br />
-  <b>Reason for going out</b>: {{ person.reason }}<br />
-  {% if person.vehicle_no %}
-  <b>Vehicle No. </b>: {{ person.vehicle_no }}
-  {% endif %}
-  <b>Time of leaving</b>: {{ person.reg }}<br />
-  </p><br />
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>Name</b>:</div>
+      <div class="col text-uppercase" style="font-size:28px">{{ person.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>Mobile</b> : </div>
+      <div class="col" style="font-size:28px">{{ person.mobile_no }}</div>
+    </div>
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>Flat</b>: </div>
+      <div class="col" style="font-size:28px">{{ person.flat }}</div>
+    </div>
+    <div class="row">
+      <div class="col" style="font-size:23px"><b>Reason for going out</b>:</div>
+      <div class="col" style="font-size:28px">{{ person.reason }}</div>
+    </div>
+    {% if person.vehicle_no %}
+      <div class="row">
+        <div class="col" style="font-size:23px"><b>Vehicle No. </b>:</div> 
+        <div class="col" style="font-size:28px">{{ person.vehicle_no }}</div>
+      </div>
+    {% endif %}
+      <div class="row">
+        <div class="col" style="font-size:23px"><b>Time of leaving</b>:</div>
+        <div class="col" style="font-size:28px">{{ person.reg }}</div>
+      </div>
+  <br />
   <button type="submit" class="btn btn-outline-primary"> Corona Screening Test temperature:- Low (Returned) </button>
   <button type="button" class="btn btn-danger" onclick="$('#positive').click()">Corona Screening Test temperature:- High (Isolation)</button>
 </form>
 <form style='display: none;' method="POST" action="{% url 'positive' person.id %}">
-        {% csrf_token %}
-        <button id="positive" type="submit">Delete</button>
+  {% csrf_token %}
+  <button id="positive" type="submit">Delete</button>
 </form>
+</div>
 {% endblock %}
