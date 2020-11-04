@@ -1,6 +1,7 @@
 {% extends 'management_system/base.html' %}
 
 {% block content %}
+<div class="container">
 <p style="font-size:50px"><b> Add a Resident: </b></p>
 {% if error %}
     <div class="alert alert-danger" role="alert">
@@ -9,30 +10,37 @@
 {% endif %}
 <form method="POST">
   {% csrf_token %}
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center mt-3">
         <div class="col-md-5">
           <div class="form-group">
-              <label for="name" style="font-size:20px">Name</label>
-              <input type="text" name="name" class="form-control" id="name" required>
+            <div class="row my-4">
+              <div class="col-sm-3"><label for="name" style="font-size:20px"><b>Name:- </b></label></div>
+              <div class="col-sm-9"><input type="text" name="name" class="form-control" id="name" required></div>
+            </div>
           </div>
           <div class="form-group">
-                <label for="mobile_no">Mobile Number: </label>
-                <input name="mobile_no" class="form-control" id="mobile_no" required>
+            <div class="row my-4">
+                  <div class="col-sm-4"><label for="mobile_no" style="font-size:20px"><b>Mobile Number: </b></label></div>
+                  <div class="col-sm-8"><input name="mobile_no" class="form-control" id="mobile_no" required></div>
           </div>
           <div class="form-group">
-                <label for="flat">Flat: </label>
-                <input name="flat" class="form-control" id="flat" required>
+            <div class="row my-4">
+                <div class="col-sm-4"><label for="flat" style="font-size:20px"><b>Flat: </b></label></div>
+                <div class="col-sm-8"><input name="flat" class="form-control" id="flat" required></div>
           </div>
           <div class="form-group">
-                <label for="vehicle_no">Vehicle No. : </label>
-                <input name="vehicle_no" class="form-control" id="vehicle_no" >
+            <div class="row my-4">
+                <div class="col-sm-4"><label for="vehicle_no" style="font-size:20px">Vehicle No. : </label></div>
+                <div class="col-sm-8"><input name="vehicle_no" class="form-control" id="vehicle_no" ></div>
           </div>
           <div class="form-group">
-                <label for="reason">Reason: </label>
-                <textarea name="reason" class="form-control" id="reason" required></textarea>
+            <div class="row my-4">
+                <div class="col-sm-4"><label for="reason" style="font-size:20px"><b>Reason: </b></label></div>
+                <div class="col-sm-8"><textarea name="reason" class="form-control" id="reason" required></textarea></div>
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Add</button>
         </div>
     </div>
 </form>
+</div>
 {% endblock %}
